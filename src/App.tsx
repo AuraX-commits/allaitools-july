@@ -31,6 +31,9 @@ import Dashboard from './pages/Dashboard';
 import PrivateRoute from './components/auth/PrivateRoute';
 import ToolRecommender from './pages/ToolRecommender';
 import AdminPage from './pages/Admin';
+import { useEffect } from "react";
+import { migrateNewToolsToSupabase } from "./utils/migrateToolsToSupabase";
+import { newTools } from "./utils/newToolsData";
 
 // Component to handle scroll to top on route changes
 const ScrollToTopWrapper = ({ children }: { children: React.ReactNode }) => {
@@ -49,6 +52,24 @@ const queryClient = new QueryClient({
 });
 
 const App = () => {
+  useEffect(() => {
+    const migrate = async () => {
+      // This check is to prevent running migration on every render in development.
+      // In a real app, you might use a more robust flag, e.g., from localStorage or a db setting.
+      if (!localStorage.getItem('new_tools_migrated_batch_2_20250615')) {
+        console.log("Migrating new tools...");
+        const result = await migrateNewToolsToSupabase(newTools);
+        if (result.success) {
+          console.log(`Successfully migrated ${result.count} new tools.`);
+          localStorage.setItem('new_tools_migrated_batch_2_20250615', 'true');
+        } else {
+          console.error("Migration failed:", result.error);
+        }
+      }
+    };
+    migrate();
+  }, []);
+
   return (
     <QueryClientProvider client={queryClient}>
       <HelmetProvider>
