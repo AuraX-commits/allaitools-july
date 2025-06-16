@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { Twitter, Instagram, Linkedin, Github } from "lucide-react";
 
@@ -26,6 +25,25 @@ const Footer = () => {
               </a>
               <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-foreground/60 hover:text-primary transition-colors" aria-label="View our GitHub">
                 <Github size={20} />
+              </a>
+            </div>
+            
+            {/* Product Hunt Badge */}
+            <div className="mt-6">
+              <a 
+                href="https://www.producthunt.com/products/allaitools-ai-directory-2025?embed=true&utm_source=badge-featured&utm_medium=badge&utm_source=badge-allaitools&#0045;ai&#0045;directory&#0045;2025" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-block hover:opacity-80 transition-opacity"
+              >
+                <img 
+                  src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=979083&theme=light&t=1750079244851" 
+                  alt="AllAITools - AI Directory 2025 - Discover & Compare AI-Powered Tools using AI | Product Hunt" 
+                  style={{ width: '250px', height: '54px' }} 
+                  width="250" 
+                  height="54" 
+                  loading="lazy"
+                />
               </a>
             </div>
           </div>
