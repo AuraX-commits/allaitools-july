@@ -1,3 +1,4 @@
+
 project_id = "favhnurmqbtzttzxvfmm"
 
 [api]
@@ -28,7 +29,7 @@ enabled = true
 
 [functions]
 [functions.recommend-tools]
-verify_jwt = false
+verify_jwt = true
 
 [functions.admin-login]
 verify_jwt = false

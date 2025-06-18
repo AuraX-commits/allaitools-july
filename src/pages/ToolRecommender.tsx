@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
@@ -11,6 +12,7 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { supabase } from "@/lib/supabaseClient";
 import { useToast } from "@/hooks/use-toast";
+import { useAuth } from "@/context/AuthContext";
 import {
   Form,
   FormControl,
@@ -48,6 +50,7 @@ type Recommendation = {
 const ToolRecommender = () => {
   const { toast } = useToast();
   const navigate = useNavigate();
+  const { user, session } = useAuth();
   const [isLoading, setIsLoading] = useState(false);
   const [recommendations, setRecommendations] = useState<Recommendation[]>([]);
   const [error, setError] = useState<string | null>(null);
@@ -98,6 +101,17 @@ const ToolRecommender = () => {
   ];
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
+    // Check if user is authenticated
+    if (!user || !session) {
+      toast({
+        title: "Authentication Required",
+        description: "Please sign in to use the AI recommendation feature.",
+        variant: "destructive",
+      });
+      navigate("/login");
+      return;
+    }
+
     setIsLoading(true);
     setRecommendations([]);
     setError(null);
@@ -105,6 +119,9 @@ const ToolRecommender = () => {
     try {
       const { data, error } = await supabase.functions.invoke("recommend-tools", {
         body: { requirements: values.requirements },
+        headers: {
+          Authorization: `Bearer ${session.access_token}`,
+        },
       });
 
       if (error) {
@@ -451,6 +468,15 @@ const ToolRecommender = () => {
                 <CardDescription className="text-lg text-gray-600 dark:text-gray-300 mt-4">
                   The more details you provide, the more accurate and personalized your recommendations will be
                 </CardDescription>
+                {!user && (
+                  <Alert className="mt-4 border-blue-200 bg-blue-50 dark:border-blue-800 dark:bg-blue-900/20">
+                    <AlertCircle className="h-4 w-4" />
+                    <AlertTitle>Authentication Required</AlertTitle>
+                    <AlertDescription className="text-base">
+                      Please <Link to="/login" className="underline text-blue-600 dark:text-blue-400">sign in</Link> to use the AI recommendation feature.
+                    </AlertDescription>
+                  </Alert>
+                )}
               </CardHeader>
               
               <CardContent className="px-8 pb-8">
@@ -466,6 +492,7 @@ const ToolRecommender = () => {
                             <Textarea
                               placeholder="Example: I need an AI tool for my marketing agency that can generate social media content, blog posts, and ad copy. Budget is around $50/month. Should integrate with our existing tools like Hootsuite and have team collaboration features. We're not very technical, so ease of use is important."
                               className="min-h-[200px] resize-y text-base border-2 focus:border-blue-500 transition-colors dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:placeholder-gray-400"
+                              disabled={!user}
                               {...field}
                             />
                           </FormControl>
@@ -480,7 +507,7 @@ const ToolRecommender = () => {
                     <Button
                       type="submit"
                       className="w-full h-14 text-lg font-semibold bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 shadow-lg"
-                      disabled={isLoading}
+                      disabled={isLoading || !user}
                     >
                       {isLoading ? (
                         <>
