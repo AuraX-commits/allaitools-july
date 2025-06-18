@@ -27,12 +27,8 @@ Allow: /tool
 # Crawl delay suggestion (in seconds)
 Crawl-delay: 3
 
-# Sitemaps - including the new sitemap index and specialized sitemaps
-Sitemap: https://www.allaitools.tech/sitemap-index.xml
+# Comprehensive sitemap
 Sitemap: https://www.allaitools.tech/sitemap.xml
-Sitemap: https://www.allaitools.tech/image-sitemap.xml
-Sitemap: https://www.allaitools.tech/tool-sitemap.xml
-Sitemap: https://www.allaitools.tech/category-sitemap.xml
 
 # Special instructions for major search engines
 User-agent: Googlebot

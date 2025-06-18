@@ -12,43 +12,44 @@ const getCurrentDate = () => {
   return now.toISOString().split('T')[0];
 };
 
-// Generate sitemap XML string
+// Generate comprehensive sitemap XML string
 export const generateSitemap = async (): Promise<string> => {
   let sitemap = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 `;
 
-  // Add static pages
+  // Add static pages with priorities
   const staticPages = [
-    "/",
-    "/compare",
-    "/categories",
-    "/pricing",
-    "/about",
-    "/blog",
-    "/careers",
-    "/terms",
-    "/privacy",
-    "/contact",
-    "/submit-tool",
-    "/login",
-    "/signup",
-    "/dashboard",
-    "/recommend"
+    { url: "/", priority: "1.0", changefreq: "daily" },
+    { url: "/categories", priority: "0.9", changefreq: "weekly" },
+    { url: "/compare", priority: "0.8", changefreq: "weekly" },
+    { url: "/recommend", priority: "0.8", changefreq: "weekly" },
+    { url: "/submit-tool", priority: "0.8", changefreq: "weekly" },
+    { url: "/pricing", priority: "0.7", changefreq: "monthly" },
+    { url: "/about", priority: "0.7", changefreq: "monthly" },
+    { url: "/blog", priority: "0.8", changefreq: "weekly" },
+    { url: "/careers", priority: "0.6", changefreq: "monthly" },
+    { url: "/contact", priority: "0.6", changefreq: "monthly" },
+    { url: "/terms", priority: "0.5", changefreq: "yearly" },
+    { url: "/privacy", priority: "0.5", changefreq: "yearly" },
+    { url: "/login", priority: "0.5", changefreq: "monthly" },
+    { url: "/signup", priority: "0.5", changefreq: "monthly" },
+    { url: "/dashboard", priority: "0.4", changefreq: "weekly" }
   ];
 
   staticPages.forEach(page => {
     sitemap += `  <url>
-    <loc>${baseUrl}${page}</loc>
+    <loc>${baseUrl}${page.url}</loc>
     <lastmod>${getCurrentDate()}</lastmod>
-    <changefreq>${page === "/" ? "daily" : "weekly"}</changefreq>
-    <priority>${page === "/" ? "1.0" : "0.8"}</priority>
+    <changefreq>${page.changefreq}</changefreq>
+    <priority>${page.priority}</priority>
   </url>
 `;
   });
 
   try {
-    // Fetch ALL tools from Supabase - no limit
+    // Fetch ALL tools from Supabase
     const { data: aiTools, error } = await supabase
       .from('ai_tools')
       .select('*');
@@ -58,9 +59,9 @@ export const generateSitemap = async (): Promise<string> => {
       throw error;
     }
     
-    console.log(`Adding ${aiTools?.length || 0} tools to sitemap`);
+    console.log(`Adding ${aiTools?.length || 0} tools to comprehensive sitemap`);
     
-    // Add tool detail pages - add ALL tools
+    // Add tool detail pages with images
     if (aiTools && aiTools.length > 0) {
       aiTools.forEach(toolRow => {
         const tool = mapRowToAITool(toolRow);
@@ -69,13 +70,18 @@ export const generateSitemap = async (): Promise<string> => {
     <loc>${baseUrl}/tool/${tool.id}/${slug}</loc>
     <lastmod>${getCurrentDate()}</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>${tool.logo}</image:loc>
+      <image:title>${tool.name} - ${tool.shortDescription}</image:title>
+      <image:caption>Logo of ${tool.name}, ${tool.shortDescription}</image:caption>
+    </image:image>
   </url>
 `;
       });
     }
     
-    // Add category pages - extract unique categories from all tools
+    // Add category pages
     const allCategories = new Set<string>();
     aiTools?.forEach(toolRow => {
       const tool = mapRowToAITool(toolRow);
@@ -83,137 +89,42 @@ export const generateSitemap = async (): Promise<string> => {
     });
     
     const categories = Array.from(allCategories);
-    console.log(`Adding ${categories.length} categories to sitemap`);
+    console.log(`Adding ${categories.length} categories to comprehensive sitemap`);
     
     categories.forEach(category => {
       sitemap += `  <url>
     <loc>${baseUrl}/categories/${encodeURIComponent(category)}</loc>
     <lastmod>${getCurrentDate()}</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
   </url>
 `;
     });
 
   } catch (error) {
     console.error('Error generating dynamic sitemap content:', error);
-    // Fallback to static content if dynamic content fails
   }
 
-  // Add blog post pages
+  // Add blog post pages with images
   blogPosts.forEach(post => {
     sitemap += `  <url>
     <loc>${baseUrl}/blog/${post.slug}</loc>
     <lastmod>${getCurrentDate()}</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-`;
-  });
-
-  // Close urlset tag
-  sitemap += `</urlset>`;
-
-  return sitemap;
-};
-
-// Generate a dedicated tool sitemap for easier management in search console
-export const generateToolSitemap = async (): Promise<string> => {
-  let sitemap = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-`;
-
-  try {
-    // Fetch ALL tools from Supabase
-    const { data: aiTools, error } = await supabase
-      .from('ai_tools')
-      .select('*');
+    <priority>0.6</priority>`;
     
-    if (error) {
-      console.error('Error fetching tools for tool sitemap:', error);
-      throw error;
-    }
-    
-    console.log(`Adding ${aiTools?.length || 0} tools to dedicated tool sitemap`);
-    
-    // Add tool detail pages
-    if (aiTools && aiTools.length > 0) {
-      aiTools.forEach(toolRow => {
-        const tool = mapRowToAITool(toolRow);
-        const slug = tool.name.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]+/g, '');
-        sitemap += `  <url>
-    <loc>${baseUrl}/tool/${tool.id}/${slug}</loc>
-    <lastmod>${getCurrentDate()}</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-`;
-      });
-    }
-  } catch (error) {
-    console.error('Error generating tool sitemap content:', error);
-  }
-
-  // Close urlset tag
-  sitemap += `</urlset>`;
-
-  return sitemap;
-};
-
-// Add image-specific information to the sitemap for images
-export const generateImageSitemap = async (): Promise<string> => {
-  let sitemap = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-`;
-
-  try {
-    // Fetch ALL tools from Supabase
-    const { data: aiTools, error } = await supabase
-      .from('ai_tools')
-      .select('*');
-    
-    if (error) {
-      console.error('Error fetching tools for image sitemap:', error);
-      throw error;
-    }
-    
-    console.log(`Adding ${aiTools?.length || 0} tool images to sitemap`);
-    
-    // Add tool pages with logo images - add ALL tools
-    if (aiTools && aiTools.length > 0) {
-      aiTools.forEach(toolRow => {
-        const tool = mapRowToAITool(toolRow);
-        const slug = tool.name.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]+/g, '');
-        sitemap += `  <url>
-    <loc>${baseUrl}/tool/${tool.id}/${slug}</loc>
-    <image:image>
-      <image:loc>${tool.logo}</image:loc>
-      <image:title>${tool.name} logo - AI tool for ${tool.category[0]}</image:title>
-      <image:caption>Logo of ${tool.name}, a ${tool.shortDescription || 'AI tool'}</image:caption>
-    </image:image>
-  </url>
-`;
-      });
-    }
-
-  } catch (error) {
-    console.error('Error generating image sitemap content:', error);
-  }
-
-  // Add blog posts with featured images
-  blogPosts.forEach(post => {
     if (post.coverImage) {
-      sitemap += `  <url>
-    <loc>${baseUrl}/blog/${post.slug}</loc>
+      sitemap += `
     <image:image>
       <image:loc>${post.coverImage}</image:loc>
       <image:title>${post.title}</image:title>
       <image:caption>${post.excerpt}</image:caption>
-    </image:image>
+    </image:image>`;
+    }
+    
+    sitemap += `
   </url>
 `;
-    }
   });
 
   // Close urlset tag
@@ -222,57 +133,7 @@ export const generateImageSitemap = async (): Promise<string> => {
   return sitemap;
 };
 
-// Generate a category sitemap for improved organization
-export const generateCategorySitemap = async (): Promise<string> => {
-  let sitemap = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-`;
-
-  try {
-    // Fetch all tools to extract categories
-    const { data: aiTools, error } = await supabase
-      .from('ai_tools')
-      .select('*');
-    
-    if (error) {
-      console.error('Error fetching tools for category sitemap:', error);
-      throw error;
-    }
-    
-    // Extract unique categories
-    const allCategories = new Set<string>();
-    aiTools?.forEach(toolRow => {
-      const tool = mapRowToAITool(toolRow);
-      tool.category.forEach(cat => allCategories.add(cat));
-    });
-    
-    const categories = Array.from(allCategories);
-    console.log(`Adding ${categories.length} categories to dedicated category sitemap`);
-    
-    // Add each category page
-    categories.forEach(category => {
-      sitemap += `  <url>
-    <loc>${baseUrl}/categories/${encodeURIComponent(category)}</loc>
-    <lastmod>${getCurrentDate()}</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-`;
-    });
-  } catch (error) {
-    console.error('Error generating category sitemap content:', error);
-  }
-
-  // Close urlset tag
-  sitemap += `</urlset>`;
-
-  return sitemap;
-};
-
-// Export all sitemap generation functions
+// Remove the other sitemap generation functions since we're using one comprehensive sitemap
 export default {
-  generateSitemap,
-  generateImageSitemap,
-  generateToolSitemap,
-  generateCategorySitemap
+  generateSitemap
 };
