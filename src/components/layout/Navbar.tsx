@@ -1,5 +1,5 @@
 
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Menu, X, User, LogOut } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -15,7 +15,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { useAuth } from "@/context/AuthContext";
 
-const Navbar = () => {
+const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const { user, signOut } = useAuth();
