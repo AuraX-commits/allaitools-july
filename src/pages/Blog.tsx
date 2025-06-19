@@ -1,4 +1,3 @@
-
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
@@ -7,12 +6,11 @@ import Footer from "../components/layout/Footer";
 import { Button } from "@/components/ui/button";
 import { blogPosts } from "@/utils/blogData";
 import { Clock, Tag, ChevronRight } from "lucide-react";
+import { useScrollToTop } from "@/hooks/useScrollToTop";
 
 const Blog = () => {
-  // Scroll to top on page load
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+  // Use the existing scroll to top hook
+  useScrollToTop();
 
   return (
     <div className="min-h-screen flex flex-col bg-background transition-colors duration-300">
