@@ -1,6 +1,27 @@
 import { BlogPost } from "../types";
 
-export const blogData: BlogPost[] = [
+const authors = [
+  {
+    id: 1,
+    name: "Alex Chen",
+    avatar: "/lovable-uploads/author-1.png",
+    title: "AI Technology Writer"
+  },
+  {
+    id: 2,
+    name: "Sarah Johnson", 
+    avatar: "/lovable-uploads/author-2.png",
+    title: "Machine Learning Researcher"
+  },
+  {
+    id: 3,
+    name: "Michael Torres",
+    avatar: "/lovable-uploads/author-3.png", 
+    title: "Data Science Expert"
+  }
+];
+
+export const blogPosts: BlogPost[] = [
   {
     id: 1,
     title: "Understanding the Basics of AI",
@@ -11,12 +32,13 @@ export const blogData: BlogPost[] = [
       <h2>Applications of AI</h2>
       <p>AI is used in various fields such as healthcare, finance, robotics, and more.</p>
     `,
-    author: 1,
+    author: authors[0],
     date: "2023-01-15",
-    readTime: "5 min read",
+    readingTime: "5 min read",
     category: "Technology",
     tags: ["AI", "Basics", "Technology"],
-    image: "/images/ai-basics.png"
+    coverImage: "/images/ai-basics.png",
+    slug: "understanding-basics-of-ai"
   },
   {
     id: 2,
@@ -28,12 +50,13 @@ export const blogData: BlogPost[] = [
       <h2>Types of Machine Learning</h2>
       <p>Supervised, unsupervised, and reinforcement learning are the main types.</p>
     `,
-    author: 2,
+    author: authors[1],
     date: "2023-02-10",
-    readTime: "7 min read",
+    readingTime: "7 min read",
     category: "Technology",
     tags: ["Machine Learning", "AI", "Data"],
-    image: "/images/machine-learning.png"
+    coverImage: "/images/machine-learning.png",
+    slug: "machine-learning-explained"
   },
   {
     id: 3,
@@ -45,12 +68,13 @@ export const blogData: BlogPost[] = [
       <h2>Personalized Medicine</h2>
       <p>AI helps tailor treatments to individual patients.</p>
     `,
-    author: 3,
+    author: authors[2],
     date: "2023-03-05",
-    readTime: "8 min read",
+    readingTime: "8 min read",
     category: "Healthcare",
     tags: ["AI", "Healthcare", "Future"],
-    image: "/images/ai-healthcare.png"
+    coverImage: "/images/ai-healthcare.png",
+    slug: "future-of-ai-in-healthcare"
   },
   {
     id: 4,
@@ -62,12 +86,13 @@ export const blogData: BlogPost[] = [
       <h2>Applications of NLP</h2>
       <p>Chatbots, translation services, and sentiment analysis are common uses.</p>
     `,
-    author: 1,
+    author: authors[0],
     date: "2023-04-12",
-    readTime: "6 min read",
+    readingTime: "6 min read",
     category: "Technology",
     tags: ["NLP", "AI", "Language"],
-    image: "/images/nlp.png"
+    coverImage: "/images/nlp.png",
+    slug: "natural-language-processing"
   },
   {
     id: 5,
@@ -79,12 +104,13 @@ export const blogData: BlogPost[] = [
       <h2>Key Ethical Issues</h2>
       <p>Bias, privacy, and accountability are central concerns.</p>
     `,
-    author: 2,
+    author: authors[1],
     date: "2023-05-20",
-    readTime: "9 min read",
+    readingTime: "9 min read",
     category: "Ethics",
     tags: ["AI", "Ethics", "Society"],
-    image: "/images/ai-ethics.png"
+    coverImage: "/images/ai-ethics.png",
+    slug: "ai-ethics"
   },
   {
     id: 6,
@@ -96,12 +122,13 @@ export const blogData: BlogPost[] = [
       <h2>Applications</h2>
       <p>Image recognition, speech processing, and more.</p>
     `,
-    author: 3,
+    author: authors[2],
     date: "2023-06-15",
-    readTime: "10 min read",
+    readingTime: "10 min read",
     category: "Technology",
     tags: ["Deep Learning", "AI", "Neural Networks"],
-    image: "/images/deep-learning.png"
+    coverImage: "/images/deep-learning.png",
+    slug: "deep-learning-demystified"
   },
   {
     id: 7,
@@ -113,12 +140,13 @@ export const blogData: BlogPost[] = [
       <h2>Challenges</h2>
       <p>Regulatory compliance and ethical concerns.</p>
     `,
-    author: 1,
+    author: authors[0],
     date: "2023-07-10",
-    readTime: "7 min read",
+    readingTime: "7 min read",
     category: "Finance",
     tags: ["AI", "Finance", "Risk"],
-    image: "/images/ai-finance.png"
+    coverImage: "/images/ai-finance.png",
+    slug: "ai-in-finance"
   },
   {
     id: 8,
@@ -130,12 +158,13 @@ export const blogData: BlogPost[] = [
       <h2>Impact on Industry</h2>
       <p>Manufacturing, logistics, and healthcare robotics.</p>
     `,
-    author: 2,
+    author: authors[1],
     date: "2023-08-05",
-    readTime: "8 min read",
+    readingTime: "8 min read",
     category: "Technology",
     tags: ["Robotics", "AI", "Automation"],
-    image: "/images/robotics.png"
+    coverImage: "/images/robotics.png",
+    slug: "robotics-and-ai"
   },
   {
     id: 9,
@@ -147,12 +176,13 @@ export const blogData: BlogPost[] = [
       <h2>Challenges</h2>
       <p>Adversarial attacks and AI vulnerabilities.</p>
     `,
-    author: 3,
+    author: authors[2],
     date: "2023-09-01",
-    readTime: "9 min read",
+    readingTime: "9 min read",
     category: "Security",
     tags: ["AI", "Cybersecurity", "Protection"],
-    image: "/images/ai-cybersecurity.png"
+    coverImage: "/images/ai-cybersecurity.png",
+    slug: "ai-and-cybersecurity"
   },
   {
     id: 10,
@@ -164,12 +194,13 @@ export const blogData: BlogPost[] = [
       <h2>Tools and Platforms</h2>
       <p>Examples include intelligent tutoring systems and adaptive assessments.</p>
     `,
-    author: 1,
+    author: authors[0],
     date: "2023-10-10",
-    readTime: "7 min read",
+    readingTime: "7 min read",
     category: "Education",
     tags: ["AI", "Education", "Personalization"],
-    image: "/images/ai-education.png"
+    coverImage: "/images/ai-education.png",
+    slug: "ai-in-education"
   },
   {
     id: 11,
@@ -181,12 +212,13 @@ export const blogData: BlogPost[] = [
       <h2>Smart Cities</h2>
       <p>AI-driven solutions for energy efficiency and waste management.</p>
     `,
-    author: 2,
+    author: authors[1],
     date: "2023-11-20",
-    readTime: "8 min read",
+    readingTime: "8 min read",
     category: "Environment",
     tags: ["AI", "Environment", "Sustainability"],
-    image: "/images/ai-environment.png"
+    coverImage: "/images/ai-environment.png",
+    slug: "ai-and-the-environment"
   },
   {
     id: 12,
@@ -234,12 +266,13 @@ export const blogData: BlogPost[] = [
       <h2>Conclusion</h2>
       <p>AI marketing tools are no longer optional—they're essential for staying competitive in today's digital landscape. By leveraging these powerful solutions, marketers can achieve better results, improve efficiency, and create more personalized customer experiences.</p>
     `,
-    author: 1,
+    author: authors[0],
     date: "2024-03-15",
-    readTime: "12 min read",
+    readingTime: "12 min read",
     category: "AI Marketing",
     tags: ["AI", "Marketing", "Digital Strategy", "Automation"],
-    image: "/lovable-uploads/0b1649a8-b70f-4dfd-8fb8-32e49632912f.png"
+    coverImage: "/lovable-uploads/0b1649a8-b70f-4dfd-8fb8-32e49632912f.png",
+    slug: "ultimate-guide-ai-marketing-tools-2024"
   },
   {
     id: 13,
@@ -289,12 +322,13 @@ export const blogData: BlogPost[] = [
       <h2>Future of AI in Data Analysis</h2>
       <p>As AI continues to evolve, we can expect even more sophisticated analysis capabilities, including automated insight generation, predictive modeling, and real-time decision support systems.</p>
     `,
-    author: 2,
+    author: authors[1],
     date: "2024-03-10",
-    readTime: "10 min read",
+    readingTime: "10 min read",
     category: "Data Analytics",
     tags: ["AI", "Data Analysis", "Business Intelligence", "Machine Learning"],
-    image: "/lovable-uploads/88f30453-c4e9-4085-9fca-cb6abfa32573.png"
+    coverImage: "/lovable-uploads/88f30453-c4e9-4085-9fca-cb6abfa32573.png",
+    slug: "ai-data-analysis-tools-intelligent-analytics"
   },
   {
     id: 14,
@@ -349,12 +383,13 @@ export const blogData: BlogPost[] = [
       <h2>The Future of AI in Education</h2>
       <p>As AI technology continues to advance, we can expect even more sophisticated educational tools that provide hyper-personalized learning experiences, real-time feedback, and adaptive curriculum design.</p>
     `,
-    author: 3,
+    author: authors[2],
     date: "2024-03-05",
-    readTime: "11 min read",
+    readingTime: "11 min read",
     category: "Education",
     tags: ["AI", "Education", "Content Creation", "E-learning"],
-    image: "/lovable-uploads/e7d72d2c-ed33-4be9-b2cb-f9ed5c8077bb.png"
+    coverImage: "/lovable-uploads/e7d72d2c-ed33-4be9-b2cb-f9ed5c8077bb.png",
+    slug: "ai-content-creation-educational-tools"
   },
   {
     id: 15,
@@ -420,11 +455,15 @@ export const blogData: BlogPost[] = [
       <h2>The Future of Workplace Automation</h2>
       <p>As AI technology continues to evolve, we can expect even more sophisticated automation capabilities, including predictive workflow optimization, intelligent resource allocation, and seamless cross-platform integration.</p>
     `,
-    author: 1,
+    author: authors[0],
     date: "2024-02-28",
-    readTime: "13 min read",
+    readingTime: "13 min read",
     category: "Productivity",
     tags: ["AI", "Automation", "Collaboration", "Productivity", "Workflow"],
-    image: "/lovable-uploads/0b1649a8-b70f-4dfd-8fb8-32e49632912f.png"
+    coverImage: "/lovable-uploads/0b1649a8-b70f-4dfd-8fb8-32e49632912f.png",
+    slug: "ai-automation-collaboration-tools-productivity"
   }
 ];
+
+// Keep the old export for backward compatibility
+export const blogData = blogPosts;
