@@ -143,7 +143,7 @@ const SubmitTool = () => {
   return (
     <>
       <Helmet>
-        <title>{pageTitle}</title>H
+        <title>{pageTitle}</title>
         <meta name="description" content={pageDescription} />
         <meta property="og:title" content={pageTitle} />
         <meta property="og:description" content={pageDescription} />
@@ -431,11 +431,11 @@ const SubmitTool = () => {
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-8">
             <h1 className="text-4xl font-bold mb-4 bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
-              Submit Your AI Tool for 
+              Submit Your AI Tool or Agent Now!
             </h1>
             <p className="text-xl text-muted-foreground mb-4 form-description">
               Get your AI tool listed in the world's largest AI directory with 100K+ monthly visitors. 
-              Completely  submission with expert review and instant exposure to AI enthusiasts worldwide.
+              Completely the best submission with expert review and instant exposure to AI enthusiasts worldwide.
             </p>
             <div className="flex flex-wrap justify-center gap-4 text-sm">
               <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full">✅ Completely Visible </span>
@@ -557,9 +557,9 @@ const SubmitTool = () => {
                             </SelectTrigger>
                           </FormControl>
                           <SelectContent>
-                            <SelectItem value=""> - No Cost</SelectItem>
-                            <SelectItem value="mium">mium -  + Paid Plans</SelectItem>
-                            <SelectItem value=" Trial"> Trial Available</SelectItem>
+                            <SelectItem value="Free">Free - No Cost</SelectItem>
+                            <SelectItem value="Freemium">Freemium - Free + Paid Plans</SelectItem>
+                            <SelectItem value="Free Trial">Free Trial Available</SelectItem>
                             <SelectItem value="Paid">Paid - Subscription/One-time</SelectItem>
                             <SelectItem value="Contact for Pricing">Contact for Pricing</SelectItem>
                             <SelectItem value="Open Source">Open Source</SelectItem>
@@ -743,7 +743,7 @@ const SubmitTool = () => {
                     <Loader2 className="mr-2 h-5 w-5 animate-spin" /> Submitting Your AI Tool...
                   </>
                 ) : (
-                  "🚀 Submit My AI Tool for  Review"
+                  "🚀 Submit My AI Tool for Review"
                 )}
               </Button>
 
