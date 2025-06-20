@@ -93,10 +93,10 @@ const SubmitTool = () => {
     },
   });
 
-  const pageTitle = "Submit Your AI Tool for Free - Get Listed in Top AI Directory | AllAITools.tech";
-  const pageDescription = "Submit your AI tool for FREE inclusion in AllAITools.tech - the internet's most comprehensive AI tool directory with 100K+ monthly visitors. Increase visibility, attract new users, and join 3000+ innovative AI solutions. Simple submission process, expert review, and instant exposure to AI enthusiasts, developers, and business professionals worldwide.";
+  const pageTitle = "Submit Your AI Tool  - Get Listed in Top AI Directory | AllAITools.tech";
+  const pageDescription = "Submit your AI tool for inclusion in AllAITools.tech - the internet's most comprehensive AI tool directory with 100K+ monthly visitors. Increase visibility, attract new users, and join 3000+ innovative AI solutions. Simple submission process, expert review, and instant exposure to AI enthusiasts, developers, and business professionals worldwide.";
 
-  const seoKeywords = "submit AI tool free, list AI software free, free AI directory submission, add AI tool listing free, promote AI application free, AI tool directory inclusion free, get AI tool listed free, AI product submission free, AI software directory listing free, AI tool promotion free, artificial intelligence tool submission free, submit new AI tool free, AI directory application free, list AI product free, AI marketplace submission free, add to AI directory free, AI tool exposure free, AI directory listing form free, register AI tool free, AI software promotion free, AI tool visibility free, AI listing service free, AI product directory free, AI tool registration free, AI directory inclusion free, add AI solution free, AI company listing free, submit AI software free, AI developer directory free, AI tool submission guidelines free, submit ai tool, list ai tool, add ai tool, free ai tool listing, ai tool directory, ai tools submission, ai software listing, submit artificial intelligence tool, ai tool promotion, ai directory submission, ai tool registration, list my ai tool, add my ai tool, ai tool marketplace, ai tool visibility, ai software directory, ai tool exposure, ai product listing, ai startup listing, new ai tool submission, ai innovation listing, ai tool discovery, submit ai application, ai tool catalog, ai directory listing, ai tool database, submit ai product, ai tool showcase, ai software catalog, ai tool platform, ai development listing, ai solution submission, ai tool repository, submit chatgpt alternative, submit ai writing tool, submit ai image generator, submit ai code assistant, submit ai video tool, submit ai voice tool, submit ai marketing tool, submit ai productivity tool, submit ai design tool, submit ai data tool, submit ai research tool, submit ai automation tool, submit ai business tool, submit ai education tool, submit ai health tool, submit ai finance tool, submit ai gaming tool, submit ai music tool, submit ai photo tool, submit ai translation tool, submit ai transcription tool, submit ai analytics tool, submit ai security tool, submit ai hr tool, submit ai legal tool, submit ai real estate tool, submit ai ecommerce tool, submit ai social media tool, submit ai content tool, submit ai seo tool, submit ai email tool, submit ai crm tool, submit ai project management tool, submit ai collaboration tool, submit ai communication tool, submit ai video editing tool, submit ai audio editing tool, submit ai photo editing tool, submit ai graphic design tool, submit ai ui design tool, submit ai ux design tool, submit ai logo design tool, submit ai presentation tool, submit ai document tool, submit ai spreadsheet tool, submit ai database tool, submit ai cloud tool, submit ai mobile app, submit ai web app, submit ai chrome extension, submit ai browser tool, submit ai desktop app, submit ai api tool, submit ai developer tool, submit ai no code tool, submit ai low code tool, submit ai workflow tool, submit ai integration tool, submit ai plugin tool, submit ai widget tool, submit ai saas tool, submit ai enterprise tool, submit ai startup tool, submit ai indie tool, submit ai open source tool, submit ai free tool, submit ai freemium tool, submit ai paid tool, submit ai subscription tool, submit ai one time purchase tool";
+  const seoKeywords = "submit AI tool , list AI software ,  AI directory submission, add AI tool listing , promote AI application , AI tool directory inclusion , get AI tool listed , AI product submission , AI software directory listing , AI tool promotion , artificial intelligence tool submission , submit new AI tool , AI directory application , list AI product , AI marketplace submission , add to AI directory , AI tool exposure , AI directory listing form , register AI tool , AI software promotion , AI tool visibility , AI listing service , AI product directory , AI tool registration , AI directory inclusion , add AI solution , AI company listing , submit AI software , AI developer directory , AI tool submission guidelines , submit ai tool, list ai tool, add ai tool,  ai tool listing, ai tool directory, ai tools submission, ai software listing, submit artificial intelligence tool, ai tool promotion, ai directory submission, ai tool registration, list my ai tool, add my ai tool, ai tool marketplace, ai tool visibility, ai software directory, ai tool exposure, ai product listing, ai startup listing, new ai tool submission, ai innovation listing, ai tool discovery, submit ai application, ai tool catalog, ai directory listing, ai tool database, submit ai product, ai tool showcase, ai software catalog, ai tool platform, ai development listing, ai solution submission, ai tool repository, submit chatgpt alternative, submit ai writing tool, submit ai image generator, submit ai code assistant, submit ai video tool, submit ai voice tool, submit ai marketing tool, submit ai productivity tool, submit ai design tool, submit ai data tool, submit ai research tool, submit ai automation tool, submit ai business tool, submit ai education tool, submit ai health tool, submit ai finance tool, submit ai gaming tool, submit ai music tool, submit ai photo tool, submit ai translation tool, submit ai transcription tool, submit ai analytics tool, submit ai security tool, submit ai hr tool, submit ai legal tool, submit ai real estate tool, submit ai ecommerce tool, submit ai social media tool, submit ai content tool, submit ai seo tool, submit ai email tool, submit ai crm tool, submit ai project management tool, submit ai collaboration tool, submit ai communication tool, submit ai video editing tool, submit ai audio editing tool, submit ai photo editing tool, submit ai graphic design tool, submit ai ui design tool, submit ai ux design tool, submit ai logo design tool, submit ai presentation tool, submit ai document tool, submit ai spreadsheet tool, submit ai database tool, submit ai cloud tool, submit ai mobile app, submit ai web app, submit ai chrome extension, submit ai browser tool, submit ai desktop app, submit ai api tool, submit ai developer tool, submit ai no code tool, submit ai low code tool, submit ai workflow tool, submit ai integration tool, submit ai plugin tool, submit ai widget tool, submit ai saas tool, submit ai enterprise tool, submit ai startup tool, submit ai indie tool, submit ai open source tool, submit ai  tool, submit ai mium tool, submit ai paid tool, submit ai subscription tool, submit ai one time purchase tool";
 
   const onSubmit = async (values: FormValues) => {
     setIsSubmitting(true);
@@ -143,7 +143,7 @@ const SubmitTool = () => {
   return (
     <>
       <Helmet>
-        <title>{pageTitle}</title>
+        <title>{pageTitle}</title>H
         <meta name="description" content={pageDescription} />
         <meta property="og:title" content={pageTitle} />
         <meta property="og:description" content={pageDescription} />
@@ -168,7 +168,7 @@ const SubmitTool = () => {
         <meta name="rating" content="general" />
         <meta name="coverage" content="worldwide" />
         <meta name="target" content="AI developers, startup founders, product managers, AI companies, tech entrepreneurs" />
-        <meta name="subject" content="AI Tool Submission - Free AI Directory Listing" />
+        <meta name="subject" content="AI Tool Submission -  AI Directory Listing" />
         <meta name="copyright" content="AllAITools.tech" />
         <meta name="designer" content="AllAITools.tech Team" />
         <meta name="owner" content="AllAITools.tech" />
@@ -192,14 +192,14 @@ const SubmitTool = () => {
               "mainEntity": {
                 "@type": "WebApplication",
                 "name": "AI Tool Submission Form",
-                "description": "Free submission form for adding AI tools to the AllAITools.tech directory",
+                "description": " submission form for adding AI tools to the AllAITools.tech directory",
                 "applicationCategory": "BusinessApplication",
                 "operatingSystem": "Web Browser",
                 "offers": {
                   "@type": "Offer",
                   "price": "0",
                   "priceCurrency": "USD",
-                  "description": "Free AI tool listing submission"
+                  "description": " AI tool listing submission"
                 }
               },
               "potentialAction": {
@@ -227,8 +227,8 @@ const SubmitTool = () => {
             {
               "@context": "https://schema.org",
               "@type": "HowTo",
-              "name": "How to Submit Your AI Tool to AllAITools.tech Directory for Free",
-              "description": "Step-by-step guide to submit your AI tool for free inclusion in the world's largest AI tools directory with 100K+ monthly visitors.",
+              "name": "How to Submit Your AI Tool to AllAITools.tech Directory for ",
+              "description": "Step-by-step guide to submit your AI tool for  inclusion in the world's largest AI tools directory with 100K+ monthly visitors.",
               "image": "/og-image.png",
               "totalTime": "PT5M",
               "estimatedCost": {
@@ -305,10 +305,10 @@ const SubmitTool = () => {
               "mainEntity": [
                 {
                   "@type": "Question",
-                  "name": "Is it completely free to submit my AI tool to AllAITools.tech?",
+                  "name": "Is it completely  to submit my AI tool to AllAITools.tech?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Yes, submitting your AI tool to AllAITools.tech is completely free. Basic listings in our directory are at no cost. We also offer premium listing options with additional visibility features for enhanced promotion."
+                    "text": "Yes, submitting your AI tool to AllAITools.tech is completely . Basic listings in our directory are at no cost. We also offer premium listing options with additional visibility features for enhanced promotion."
                   }
                 },
                 {
@@ -378,8 +378,8 @@ const SubmitTool = () => {
             {
               "@context": "https://schema.org",
               "@type": "Service",
-              "name": "Free AI Tool Directory Submission",
-              "description": "Free submission service for adding AI tools to the world's largest AI tools directory",
+              "name": " AI Tool Directory Submission",
+              "description": " submission service for adding AI tools to the world's largest AI tools directory",
               "provider": {
                 "@type": "Organization",
                 "name": "AllAITools.tech",
@@ -395,7 +395,7 @@ const SubmitTool = () => {
                 "@type": "Offer",
                 "price": "0",
                 "priceCurrency": "USD",
-                "description": "Free AI tool listing in comprehensive directory"
+                "description": " AI tool listing in comprehensive directory"
               }
             }
           `}
@@ -431,14 +431,14 @@ const SubmitTool = () => {
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-8">
             <h1 className="text-4xl font-bold mb-4 bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
-              Submit Your AI Tool for Free
+              Submit Your AI Tool for 
             </h1>
             <p className="text-xl text-muted-foreground mb-4 form-description">
               Get your AI tool listed in the world's largest AI directory with 100K+ monthly visitors. 
-              Completely free submission with expert review and instant exposure to AI enthusiasts worldwide.
+              Completely  submission with expert review and instant exposure to AI enthusiasts worldwide.
             </p>
             <div className="flex flex-wrap justify-center gap-4 text-sm">
-              <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full">✅ Completely Free</span>
+              <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full">✅ Completely Visible </span>
               <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full">🚀 100K+ Monthly Visitors</span>
               <span className="bg-purple-100 text-purple-800 px-3 py-1 rounded-full">⚡ Fast Review Process</span>
               <span className="bg-orange-100 text-orange-800 px-3 py-1 rounded-full">🎯 Targeted Audience</span>
@@ -456,9 +456,8 @@ const SubmitTool = () => {
               </div>
               <div className="space-y-2">
                 <div>⚡ <strong>Fast Processing:</strong> 2-5 day review process</div>
-                <div>🆓 <strong>Completely Free:</strong> No hidden costs or fees</div>
+                <div>🆓 <strong>Complete :</strong> No hidden costs or fees</div>
                 <div>🏆 <strong>Expert Curation:</strong> Quality-focused directory</div>
-                <div>📊 <strong>Analytics Ready:</strong> Track your tool's performance</div>
               </div>
             </div>
           </div>
@@ -558,9 +557,9 @@ const SubmitTool = () => {
                             </SelectTrigger>
                           </FormControl>
                           <SelectContent>
-                            <SelectItem value="Free">Free - No Cost</SelectItem>
-                            <SelectItem value="Freemium">Freemium - Free + Paid Plans</SelectItem>
-                            <SelectItem value="Free Trial">Free Trial Available</SelectItem>
+                            <SelectItem value=""> - No Cost</SelectItem>
+                            <SelectItem value="mium">mium -  + Paid Plans</SelectItem>
+                            <SelectItem value=" Trial"> Trial Available</SelectItem>
                             <SelectItem value="Paid">Paid - Subscription/One-time</SelectItem>
                             <SelectItem value="Contact for Pricing">Contact for Pricing</SelectItem>
                             <SelectItem value="Open Source">Open Source</SelectItem>
@@ -744,7 +743,7 @@ const SubmitTool = () => {
                     <Loader2 className="mr-2 h-5 w-5 animate-spin" /> Submitting Your AI Tool...
                   </>
                 ) : (
-                  "🚀 Submit My AI Tool for Free Review"
+                  "🚀 Submit My AI Tool for  Review"
                 )}
               </Button>
 
