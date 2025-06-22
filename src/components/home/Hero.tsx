@@ -61,20 +61,20 @@ const Hero = () => {
       >
         <div className="inline-block mb-4 animate-fade-in">
           <span className="px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary">
-            Find The Perfect AI Tool
+            All AI Tools at One Place
           </span>
         </div>
         
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 animate-slide-up text-balance max-w-4xl mx-auto leading-[1.1] text-foreground">
-          Discover & Compare <br className="hidden sm:block" />
+          All AI Tools Directory <br className="hidden sm:block" />
           <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-blue-600">
-            AI-Powered Tools
+            Best AI Tools at One Place
           </span>
         </h1>
         
         <p className="text-lg md:text-xl text-foreground/80 max-w-2xl mx-auto mb-10 animate-slide-up" style={{ animationDelay: '0.1s' }}>
-          Your curated directory of cutting-edge AI tools with detailed comparisons, 
-          reviews, and insights to help you find the perfect solution.
+          Discover the best AI tools in our comprehensive AI tools directory. 
+          Find all AI tools at one place with detailed comparisons, reviews, and insights to help you choose the perfect AI solution.
         </p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up" style={{ animationDelay: '0.2s' }}>
@@ -82,19 +82,19 @@ const Hero = () => {
             onClick={scrollToTools}
             className="px-8 py-3 bg-primary text-primary-foreground rounded-full font-medium hover:bg-primary/90 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-primary/20 transform hover:-translate-y-1"
           >
-            Explore Tools
+            Explore All AI Tools
           </button>
           <button
             onClick={scrollToCompare}
             className="px-8 py-3 bg-card text-card-foreground rounded-full font-medium border border-border hover:bg-secondary transition-all duration-300 flex items-center justify-center gap-2"
           >
-            Compare Tools <ChevronRight className="w-4 h-4" />
+            Compare Best AI Tools <ChevronRight className="w-4 h-4" />
           </button>
         </div>
 
         <div className="mt-4 flex justify-center items-center gap-4 animate-slide-up" style={{ animationDelay: '0.3s' }}>
           <Link to="/submit-tool" className="text-foreground/70 hover:text-primary transition-colors underline underline-offset-4">
-            Submit Your Tool
+            Submit Your AI Tool
           </Link>
         </div>
         

@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { Search, X } from "lucide-react";
 import { AITool, mapRowToAITool } from "@/utils/toolsData";
@@ -181,10 +182,10 @@ const ToolsDirectory = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center mb-12">
             <h2 className="text-3xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/70">
-              Discover AI Tools
+              Browse All AI Tools in Our Directory
             </h2>
             <p className="text-foreground/80">
-              Browse our curated collection of AI-powered tools and find the perfect solution for your needs.
+              Loading the best AI tools from our comprehensive AI tools directory - all tools at one place.
             </p>
           </div>
           
@@ -213,7 +214,7 @@ const ToolsDirectory = () => {
           <div className="max-w-3xl mx-auto text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">Oops! Something went wrong</h2>
             <p className="text-foreground/80">
-              We're having trouble loading the tools. Please try again later.
+              We're having trouble loading the AI tools from our directory. Please try again later.
             </p>
           </div>
         </div>
@@ -226,13 +227,13 @@ const ToolsDirectory = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto text-center mb-12">
           <span className="text-sm font-medium text-primary/80 uppercase tracking-wider mb-2 inline-block">
-            Cutting-Edge Solutions
+            All AI Tools at One Place
           </span>
           <h2 className="text-3xl sm:text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/70">
-            Discover AI Tools
+            Discover the Best AI Tools in Our Directory
           </h2>
           <p className="text-foreground/80 text-lg">
-            Browse our curated collection of AI-powered tools and find the perfect solution for your needs.
+            Browse our comprehensive AI tools directory featuring all AI tools at one place. Find the perfect AI solution with detailed comparisons and expert reviews.
           </p>
         </div>
 
@@ -244,7 +245,7 @@ const ToolsDirectory = () => {
             </div>
             <input
               type="text"
-              placeholder="Search AI tools..."
+              placeholder="Search all AI tools in our directory..."
               className="block w-full pl-10 pr-10 py-3 border border-input rounded-lg bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all duration-300 dark:bg-background dark:border-border dark:text-foreground"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
@@ -280,9 +281,9 @@ const ToolsDirectory = () => {
             ))
           ) : (
             <div className="col-span-full py-16 text-center">
-              <h3 className="text-xl font-medium mb-2">No tools found</h3>
+              <h3 className="text-xl font-medium mb-2">No AI tools found</h3>
               <p className="text-muted-foreground mb-4">
-                Try adjusting your search or filters to find what you're looking for.
+                Try adjusting your search or filters to find the best AI tools in our directory.
               </p>
               <button
                 onClick={resetFilters}
@@ -341,7 +342,7 @@ const ToolsDirectory = () => {
             to="/categories" 
             className="inline-flex items-center px-6 py-3 text-white bg-primary hover:bg-primary/90 rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg"
           >
-            View All Categories
+            View All AI Tools Categories
           </Link>
         </div>
       </div>
