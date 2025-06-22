@@ -4,13 +4,20 @@ export interface BlogPost {
   title: string;
   excerpt: string;
   content: string;
-  author: string;
+  author: {
+    name: string;
+    title: string;
+    avatar: string;
+  };
   date: string;
   readTime: number;
+  readingTime: string; // Adding this for compatibility
   category: string;
   tags: string[];
   featured: boolean;
   image: string;
+  coverImage: string; // Adding this property
+  slug: string; // Adding this property
 }
 
 export const blogPosts: BlogPost[] = [
@@ -47,13 +54,20 @@ export const blogPosts: BlogPost[] = [
       <h2>Looking Ahead</h2>
       <p>As we progress through 2024, we can expect to see continued innovation in AI tools, with particular emphasis on ethical AI development, improved accessibility, and enhanced integration capabilities.</p>
     `,
-    author: "Sarah Johnson",
+    author: {
+      name: "Sarah Johnson",
+      title: "AI Technology Analyst",
+      avatar: "/lovable-uploads/88f30453-c4e9-4085-9fca-cb6abfa32573.png"
+    },
     date: "2024-03-15",
     readTime: 8,
+    readingTime: "8 min read",
     category: "Technology",
     tags: ["AI", "Technology", "Future", "Innovation"],
     featured: true,
-    image: "/lovable-uploads/88f30453-c4e9-4085-9fca-cb6abfa32573.png"
+    image: "/lovable-uploads/88f30453-c4e9-4085-9fca-cb6abfa32573.png",
+    coverImage: "/lovable-uploads/88f30453-c4e9-4085-9fca-cb6abfa32573.png",
+    slug: "future-of-ai-tools-2024"
   },
   {
     id: 2,
@@ -96,13 +110,20 @@ export const blogPosts: BlogPost[] = [
         <li>Regularly review and optimize usage</li>
       </ul>
     `,
-    author: "Michael Chen",
+    author: {
+      name: "Michael Chen",
+      title: "Business Strategy Consultant",
+      avatar: "/lovable-uploads/0b1649a8-b70f-4dfd-8fb8-32e49632912f.png"
+    },
     date: "2024-03-10",
     readTime: 12,
+    readingTime: "12 min read",
     category: "Business",
     tags: ["Business", "AI Tools", "Strategy", "Implementation"],
     featured: false,
-    image: "/lovable-uploads/0b1649a8-b70f-4dfd-8fb8-32e49632912f.png"
+    image: "/lovable-uploads/0b1649a8-b70f-4dfd-8fb8-32e49632912f.png",
+    coverImage: "/lovable-uploads/0b1649a8-b70f-4dfd-8fb8-32e49632912f.png",
+    slug: "choose-right-ai-tool-business"
   },
   {
     id: 3,
@@ -153,13 +174,20 @@ export const blogPosts: BlogPost[] = [
         <li><strong>For businesses:</strong> Consider enterprise features and integration capabilities</li>
       </ul>
     `,
-    author: "Emily Rodriguez",
+    author: {
+      name: "Emily Rodriguez",
+      title: "Content Marketing Specialist",
+      avatar: "/lovable-uploads/e7d72d2c-ed33-4be9-b2cb-f9ed5c8077bb.png"
+    },
     date: "2024-03-05",
     readTime: 15,
+    readingTime: "15 min read",
     category: "Tools Review",
     tags: ["AI Writing", "Content Creation", "Comparison", "Review"],
     featured: true,
-    image: "/lovable-uploads/e7d72d2c-ed33-4be9-b2cb-f9ed5c8077bb.png"
+    image: "/lovable-uploads/e7d72d2c-ed33-4be9-b2cb-f9ed5c8077bb.png",
+    coverImage: "/lovable-uploads/e7d72d2c-ed33-4be9-b2cb-f9ed5c8077bb.png",
+    slug: "top-10-ai-writing-tools-compared"
   },
   {
     id: 4,
@@ -204,13 +232,20 @@ export const blogPosts: BlogPost[] = [
       <h2>Future Trends</h2>
       <p>The future of AI in customer service includes more sophisticated emotional intelligence, better integration with business systems, and enhanced personalization capabilities.</p>
     `,
-    author: "David Park",
+    author: {
+      name: "David Park",
+      title: "Customer Experience Manager",
+      avatar: "/lovable-uploads/88f30453-c4e9-4085-9fca-cb6abfa32573.png"
+    },
     date: "2024-02-28",
     readTime: 10,
+    readingTime: "10 min read",
     category: "Customer Service",
     tags: ["AI", "Customer Service", "Automation", "Business"],
     featured: false,
-    image: "/lovable-uploads/88f30453-c4e9-4085-9fca-cb6abfa32573.png"
+    image: "/lovable-uploads/88f30453-c4e9-4085-9fca-cb6abfa32573.png",
+    coverImage: "/lovable-uploads/88f30453-c4e9-4085-9fca-cb6abfa32573.png",
+    slug: "ai-customer-service-transformation"
   },
   {
     id: 5,
@@ -271,13 +306,20 @@ export const blogPosts: BlogPost[] = [
       <h2>The Future of No-Code AI</h2>
       <p>As these platforms evolve, we can expect more sophisticated AI capabilities, better integration options, and continued reduction in the technical barriers to AI adoption.</p>
     `,
-    author: "Lisa Wang",
+    author: {
+      name: "Lisa Wang",
+      title: "No-Code Platform Expert",
+      avatar: "/lovable-uploads/0b1649a8-b70f-4dfd-8fb8-32e49632912f.png"
+    },
     date: "2024-02-20",
     readTime: 11,
+    readingTime: "11 min read",
     category: "No-Code",
     tags: ["No-Code", "AI Platforms", "Accessibility", "Development"],
     featured: false,
-    image: "/lovable-uploads/0b1649a8-b70f-4dfd-8fb8-32e49632912f.png"
+    image: "/lovable-uploads/0b1649a8-b70f-4dfd-8fb8-32e49632912f.png",
+    coverImage: "/lovable-uploads/0b1649a8-b70f-4dfd-8fb8-32e49632912f.png",
+    slug: "rise-of-no-code-ai-platforms"
   },
   {
     id: 6,
@@ -338,13 +380,20 @@ export const blogPosts: BlogPost[] = [
       <h2>Conclusion</h2>
       <p>Responsible AI implementation is not just about compliance—it's about building trust, ensuring fairness, and creating AI systems that benefit society as a whole.</p>
     `,
-    author: "Dr. James Miller",
+    author: {
+      name: "Dr. James Miller",
+      title: "AI Ethics Researcher",
+      avatar: "/lovable-uploads/e7d72d2c-ed33-4be9-b2cb-f9ed5c8077bb.png"
+    },
     date: "2024-02-15",
     readTime: 13,
+    readingTime: "13 min read",
     category: "Ethics",
     tags: ["AI Ethics", "Responsible AI", "Compliance", "Governance"],
     featured: true,
-    image: "/lovable-uploads/e7d72d2c-ed33-4be9-b2cb-f9ed5c8077bb.png"
+    image: "/lovable-uploads/e7d72d2c-ed33-4be9-b2cb-f9ed5c8077bb.png",
+    coverImage: "/lovable-uploads/e7d72d2c-ed33-4be9-b2cb-f9ed5c8077bb.png",
+    slug: "ai-ethics-responsible-implementation"
   }
 ];
 
