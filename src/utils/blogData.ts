@@ -421,7 +421,7 @@ export const blogPosts: BlogPost[] = [
     tags: ["Creative AI", "Design Tools", "Digital Art", "Innovation"]
   },
   {
-    id: "6",
+    id: 6,
     slug: "comprehensive-guide-to-ai-writing-tools-2025",
     title: "Comprehensive Guide to AI Writing Tools in 2025: Features, Benefits, and Top Recommendations",
     excerpt: "Discover the best AI writing tools of 2025, their features, use cases, and how they can transform your content creation workflow. Find the perfect AI assistant for your specific needs.",
@@ -610,7 +610,7 @@ export const blogPosts: BlogPost[] = [
     tags: ["AI Writing", "Content Creation", "Productivity Tools", "SEO", "Digital Marketing"]
   },
   {
-    id: "1",
+    id: 1,
     slug: "future-of-ai-tools-2023",
     title: "The Future of AI Tools in 2023 and Beyond",
     excerpt: "Exploring how AI tools are evolving and what to expect in the coming years as artificial intelligence continues to transform industries.",
@@ -673,7 +673,7 @@ export const blogPosts: BlogPost[] = [
     tags: ["AI", "Future Technology", "Machine Learning", "Industry Trends"]
   },
   {
-    id: "2",
+    id: 2,
     slug: "comparing-top-ai-image-generators",
     title: "Comparing the Top AI Image Generators of 2023",
     excerpt: "A comprehensive comparison of the leading AI image generation tools, their features, pricing, and use cases to help you choose the right one.",
@@ -801,7 +801,7 @@ export const blogPosts: BlogPost[] = [
     tags: ["AI", "Image Generation", "Design Tools", "Comparison"]
   },
   {
-    id: "3",
+    id: 3,
     slug: "how-ai-is-transforming-content-creation",
     title: "How AI is Transforming Content Creation in 2023",
     excerpt: "Discover how artificial intelligence is revolutionizing content creation across industries, from writing and editing to design and video production.",
@@ -888,7 +888,7 @@ export const blogPosts: BlogPost[] = [
     tags: ["AI", "Content Marketing", "Creativity", "Productivity"]
   },
   {
-    id: "4",
+    id: 4,
     slug: "mastering-ai-prompts-for-better-results",
     title: "Mastering AI Prompts: The Ultimate Guide to Getting Better Results",
     excerpt: "Learn advanced prompting techniques to dramatically improve your results with ChatGPT, DALL-E, and other AI tools for both business and creative applications.",
@@ -1023,7 +1023,7 @@ export const blogPosts: BlogPost[] = [
     tags: ["AI", "Prompts", "Productivity", "ChatGPT", "DALL-E"]
   },
   {
-    id: "5",
+    id: 5,
     slug: "ethical-considerations-in-ai-development",
     title: "Ethical Considerations in AI Development and Deployment",
     excerpt: "Explore the critical ethical challenges facing AI technology today and how developers, businesses, and users can navigate them responsibly.",

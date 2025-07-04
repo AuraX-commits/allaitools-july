@@ -122,12 +122,27 @@ const SubmitTool = () => {
       if (error) throw error;
 
       toast({
-        title: "Tool submitted successfully!",
-        description:
-          "Thank you for your submission. We'll review it and get back to you soon.",
+        title: "Almost there! One more step...",
+        description: (
+          <div className="space-y-2">
+            <p>Your AI tool has been submitted successfully!</p>
+            <p>To get your tool listed and live, please complete a small convenience fee payment:</p>
+            <a 
+              href="https://allaitoolstech.gumroad.com/l/suvyf" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-block bg-primary text-primary-foreground px-3 py-1 rounded text-sm hover:bg-primary/90 transition-colors"
+            >
+              Complete Payment →
+            </a>
+          </div>
+        ),
       });
 
-      navigate("/");
+      // Don't navigate away immediately, let user see the payment info
+      setTimeout(() => {
+        navigate("/");
+      }, 10000); // Redirect after 10 seconds
     } catch (error) {
       console.error("Error submitting tool:", error);
       toast({
