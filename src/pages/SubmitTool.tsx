@@ -11,6 +11,13 @@ import * as z from "zod";
 import Navbar from "../components/layout/Navbar";
 import Footer from "../components/layout/Footer";
 import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import {
   Form,
   FormControl,
   FormField,
@@ -72,6 +79,7 @@ type FormValues = z.infer<typeof formSchema>;
 
 const SubmitTool = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showPaymentModal, setShowPaymentModal] = useState(false);
   const { toast } = useToast();
   const navigate = useNavigate();
   
@@ -121,28 +129,8 @@ const SubmitTool = () => {
 
       if (error) throw error;
 
-      toast({
-        title: "Almost there! One more step...",
-        description: (
-          <div className="space-y-2">
-            <p>Your AI tool has been submitted successfully!</p>
-            <p>To get your tool listed and live, please complete a small convenience fee payment:</p>
-            <a 
-              href="https://allaitoolstech.gumroad.com/l/suvyf" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="inline-block bg-primary text-primary-foreground px-3 py-1 rounded text-sm hover:bg-primary/90 transition-colors"
-            >
-              Complete Payment →
-            </a>
-          </div>
-        ),
-      });
-
-      // Don't navigate away immediately, let user see the payment info
-      setTimeout(() => {
-        navigate("/");
-      }, 10000); // Redirect after 10 seconds
+      // Show payment modal instead of toast
+      setShowPaymentModal(true);
     } catch (error) {
       console.error("Error submitting tool:", error);
       toast({
@@ -777,6 +765,56 @@ const SubmitTool = () => {
           </Form>
         </div>
       </main>
+
+      {/* Payment Modal */}
+      <Dialog open={showPaymentModal} onOpenChange={() => {}}>
+        <DialogContent className="max-w-2xl">
+          <DialogHeader>
+            <DialogTitle className="text-2xl font-bold text-center">
+              🎉 Submission Successful! Final Step Required
+            </DialogTitle>
+            <DialogDescription className="text-center text-lg">
+              Your AI tool has been submitted successfully!
+            </DialogDescription>
+          </DialogHeader>
+          
+          <div className="space-y-6 py-6">
+            <div className="bg-gradient-to-r from-orange-100 to-red-100 p-6 rounded-lg border-2 border-orange-300">
+              <h3 className="text-xl font-semibold text-orange-800 mb-4 text-center">
+                💳 Small Convenience Fee Required
+              </h3>
+              <p className="text-gray-700 text-center mb-4">
+                To ensure quality submissions and cover our review & listing costs, 
+                please complete a small convenience fee payment to activate your listing.
+              </p>
+              <div className="text-center">
+                <a
+                  href="https://allaitoolstech.gumroad.com/l/suvyf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block bg-gradient-to-r from-orange-600 to-red-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:from-orange-700 hover:to-red-700 transition-all transform hover:scale-105 shadow-lg"
+                >
+                  💳 Complete Payment & Activate Listing
+                </a>
+              </div>
+            </div>
+
+            <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
+              <h4 className="font-semibold text-blue-800 mb-3">📋 What happens next:</h4>
+              <ul className="space-y-2 text-sm text-blue-700">
+                <li>✅ Complete the payment process (takes 2 minutes)</li>
+                <li>🔍 Our team reviews your submission within 24-48 hours</li>
+                <li>🚀 Your tool goes live and gets exposure to 100K+ monthly visitors</li>
+                <li>📧 You receive confirmation email once live</li>
+              </ul>
+            </div>
+
+            <div className="text-center text-red-600 font-medium">
+              🚨 Your submission will NOT be processed without payment completion
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
 
       <Footer />
     </>
